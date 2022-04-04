@@ -1,36 +1,21 @@
 import React from "react";
 
-export default class Input extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            inputValue: ""
-        }
-    }
+export default function Input(props) {
+  const [taskContent, setTaskContent] = React.useState("");
 
-  onChangeHandler(event) {
-    this.setState({
-      inputValue: event.target.value,
-    });
+  function handleChange(event) {
+    setTaskContent(event.target.value);
   }
 
-  taskAdder() {
-      this.props.taskAdder(this.state.inputValue);
-      this.setState({
-          inputValue: ''
-      })
+  function addTask() {
+    props.taskAdder(taskContent);
+    setTaskContent("");
   }
 
-  render() {
-    return (
-      <div className="input-wrapper">
-        <input
-          type="text"
-          value={this.state.inputValue}
-          onChange={this.onChangeHandler.bind(this)}
-        />
-        <button onClick={this.taskAdder.bind(this)}>Add Task</button>
-      </div>
-    );
-  }
+  return (
+    <div className="input-wrapper">
+      <input type="text" value={taskContent} onChange={handleChange} />
+      <button onClick={addTask}>Add Task</button>
+    </div>
+  );
 }
