@@ -8,11 +8,10 @@ export default function Table(props) {
       number={index + 1}
       content={task.content}
       key={index}
-      deleteTask={props.deleteTask}
-      editTask={props.editTask}
-      updateTask={props.updateTask}
+      setTasks={props.setTasks}
     />
   ));
+
   return (
     <table>
       <TableHeader />

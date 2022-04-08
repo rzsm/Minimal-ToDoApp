@@ -92,8 +92,7 @@ i {
 
 .edit-input, .change-btn{
   border:solid 2px #598359cc;
-  border-radius: 2px;
-  display: none;
+  border-radius: 2px;  
 }
 
 .change-btn {
